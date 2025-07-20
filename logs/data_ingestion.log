@@ -1,0 +1,13 @@
+2025-07-20 19:08:20,233 - data_ingestion - ERROR - File not found: params.yaml
+2025-07-20 19:08:20,233 - data_ingestion - ERROR - Failed to complete the data ingestion process: [Errno 2] No such file or directory: 'params.yaml'
+2025-07-20 19:10:37,909 - data_ingestion - ERROR - File not found: params.yaml
+2025-07-20 19:10:37,909 - data_ingestion - ERROR - Failed to complete the data ingestion process: [Errno 2] No such file or directory: 'params.yaml'
+2025-07-20 19:12:44,867 - data_ingestion - DEBUG - Parameters retrieved from params.yaml
+2025-07-20 19:12:44,867 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-07-20 19:14:59,788 - data_ingestion - DEBUG - Parameters retrieved from params.yaml
+2025-07-20 19:14:59,788 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-07-20 19:15:21,933 - data_ingestion - DEBUG - Parameters retrieved from params.yaml
+2025-07-20 19:15:21,998 - data_ingestion - DEBUG - Data loaded from C:/Users/Aafrren Mughal/Desktop/ML_Pipeline/experiments/spam.csv
+2025-07-20 19:15:22,131 - data_ingestion - DEBUG - Data preprocessing completed
+2025-07-20 19:15:22,282 - data_ingestion - DEBUG - Train and test data saved to data\raw
+2025-07-20 19:15:22,291 - data_ingestion - INFO - Data ingestion completed successfully.

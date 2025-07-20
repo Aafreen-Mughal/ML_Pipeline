@@ -1,0 +1,4 @@
+2025-07-20 19:05:05,645 - data_ingestion - ERROR - File not found: params.yaml
+2025-07-20 19:05:05,649 - data_ingestion - ERROR - Failed to complete the data ingestion process: [Errno 2] No such file or directory: 'params.yaml'
+2025-07-20 19:06:21,249 - data_ingestion - ERROR - File not found: params.yaml
+2025-07-20 19:06:21,249 - data_ingestion - ERROR - Failed to complete the data ingestion process: [Errno 2] No such file or directory: 'params.yaml'

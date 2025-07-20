@@ -4,11 +4,9 @@ from sklearn.model_selection import train_test_split
 import logging
 import yaml
 
-
 # Ensure the "logs" directory exists
 log_dir = 'logs'
 os.makedirs(log_dir, exist_ok=True)
-
 
 # logging configuration
 logger = logging.getLogger('data_ingestion')
@@ -61,8 +59,8 @@ def load_data(data_url: str) -> pd.DataFrame:
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """Preprocess the data."""
     try:
-        df.drop(columns = ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace = True)
-        df.rename(columns = {'v1': 'target', 'v2': 'text'}, inplace = True)
+        df.drop(columns=['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace=True)
+        df.rename(columns={'v1': 'target', 'v2': 'text'}, inplace=True)
         logger.debug('Data preprocessing completed')
         return df
     except KeyError as e:
@@ -87,13 +85,19 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 def main():
     try:
         params = load_params(params_path='params.yaml')
-        test_size = params['data_ingestion']['test_size']
-        # test_size = 0.2
-        data_path = 'https://raw.githubusercontent.com/vikashishere/Datasets/main/spam.csv'
+        ingestion_params = params['data_ingestion']
+
+        data_path = ingestion_params['data_source']
+        test_size = ingestion_params['test_size']
+        random_state = ingestion_params['random_state']
+        output_dir = ingestion_params['output_dir']
+
         df = load_data(data_url=data_path)
         final_df = preprocess_data(df)
-        train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
-        save_data(train_data, test_data, data_path='./data')
+        train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=random_state)
+        save_data(train_data, test_data, data_path=output_dir)
+
+        logger.info('Data ingestion completed successfully.')
     except Exception as e:
         logger.error('Failed to complete the data ingestion process: %s', e)
         print(f"Error: {e}")
